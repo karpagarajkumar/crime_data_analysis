@@ -2,8 +2,8 @@
 
 create or replace table project_crime.gold_layer.area_dim
 (
-	area_id 	number,
-	area_name 	string
+	area_id 	Varchar,
+	area_name 	Varchar
 )
 ;
 
