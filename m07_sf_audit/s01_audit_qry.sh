@@ -1,13 +1,13 @@
 #count check b/w source and destination
 #!bin/bash
 
-sy_src_chk= `hive -e 'select count(*) from project_crime.silver_layer.sy_strt_slvr_incr where proc_date=current_date()'`
+sy_src_chk= `snowsql -c connection -q 'select count(*) from project_crime.silver_layer.sy_strt_slvr_incr where proc_date=current_date()'`
 
-asc_src_chk= `hive -e 'select count(*) from project_crime.silver_layer.asc_strt_slvr_incr where proc_date=current_date()'`
+asc_src_chk= `snowsql -c connection -q 'select count(*) from project_crime.silver_layer.asc_strt_slvr_incr where proc_date=current_date()'`
 
-sy_dest_chk= `hive -e 'select count(*) from project_crime.gold_layer.crime_data_fact_tbl where area_id='101' and proc_date=current_date()'`
+sy_dest_chk= `snowsql -c connection -q 'select count(*) from project_crime.gold_layer.crime_data_fact_tbl where area_id='101' and proc_date=current_date()'`
 
-asc_dest_chk= `hive -e 'select count(*) from project_crime.gold_layer.crime_data_fact_tbl where area_id='102' and proc_date=current_date()'`
+asc_dest_chk= `snowsql -c connection -q 'select count(*) from project_crime.gold_layer.crime_data_fact_tbl where area_id='102' and proc_date=current_date()'`
 
 echo "sy_src_chk: $ sy_src_chk"
 echo "asc_src_chk: $ asc_src_chk"
