@@ -2,7 +2,7 @@
 
 create or replace table project_crime.gold_layer.area_dim
 (
-	area_id 	integer,
+	area_id 	number,
 	area_name 	string
 )
 ;
