@@ -1,7 +1,6 @@
 -- Fact table loaded by using various street table
 
-INSERT overwrite table project_crime.gold_layer.crime_data_fact_tbl
-PARTITION(area_id,event_date) 
+INSERT INTO project_crime.gold_layer.crime_data_fact_tbl
 select 
 crime_id,
 month,
@@ -31,8 +30,7 @@ WHERE proc_date = current_date()
 WHERE rownum=1
 ;
 
-INSERT overwrite table crimesilver.crime_data_fact_tbl
-PARTITION(area_id,event_date) 
+INSERT INTO crimesilver.crime_data_fact_tbl 
 select 
 crime_id,
 month,
